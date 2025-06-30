@@ -12,7 +12,7 @@ const options = {
     },
     servers: [
       {
-        url: process.env.NODE_ENV === "development" ? 'http://localhost:3000' : 'https://exercise5-3jq1.onrender.com',
+        url: process.env.NODE_ENV === "development" ? 'http://localhost:3000' : 'https://personal-finance-3l6w.onrender.com',
       }
     ],
     components: {
