@@ -81,7 +81,7 @@ app.get("/users", (req, res) => {
 
 app.use(Notfound);
 
-mongoose.connect(process.env.MONGO_URI_DEV)
+mongoose.connect(process.env.NODE_ENV =="development"? process.env.MONGO_URI_DEV : process.env.MONGO_URL_PRO)
   .then(() => console.log('✅ MongoDB connected locally'))
   .catch(err => console.error('❌ Connection error:', err));
 app.listen(PORT, () => {
