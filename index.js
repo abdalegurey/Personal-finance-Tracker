@@ -40,7 +40,8 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5879',
   'http://localhost:5177',
-  'http://localhost:5174'
+  'http://localhost:5174',
+  "https://personal-finance-3l6w.onrender.com/"
 ];
 
 app.use(cors({
