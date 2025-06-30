@@ -34,14 +34,10 @@ console.log("Start of Month:", startOfMonth);
 console.log("End of Month:", endOfMonth);
 
 const allowedOrigins = [
-  'http://localhost:5175',
-    'http://localhost:5173',
-
+  'http://localhost:5173',
   'http://localhost:3000',
-  'http://localhost:5879',
-  'http://localhost:5177',
-  'http://localhost:5174',
-  "https://personal-finance-3l6w.onrender.com/"
+  'https://exercise5-3jq1.onrender.com',
+  'https://your-frontend-name.onrender.com' // replace with your actual frontend Render domain
 ];
 
 app.use(cors({
@@ -49,11 +45,13 @@ app.use(cors({
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.log("⛔ Not allowed by CORS:", origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
+
 // Middleware to log requests
 app.use(logger);
 // Middleware to handle 404 Not Found
