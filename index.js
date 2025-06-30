@@ -26,31 +26,19 @@ const users=[
 ]
 app.use(limiter);
 
-const now = new Date();
-const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+// const now = new Date();
+// const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+// const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
 
-console.log("Start of Month:", startOfMonth);
-console.log("End of Month:", endOfMonth);
+// console.log("Start of Month:", startOfMonth);
+// console.log("End of Month:", endOfMonth);
 
-const allowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:3000',
-  'https://exercise5-3jq1.onrender.com',
-  'https://your-frontend-name.onrender.com' // replace with your actual frontend Render domain
-];
-
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.log("⛔ Not allowed by CORS:", origin);
-      callback(new Error('Not allowed by CORS'));
+app.use(cors(
+    {
+        origin: ["http://localhost:5173", "https://dugsiiye.com"]
     }
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-}));
+))
+
 
 // Middleware to log requests
 app.use(logger);
@@ -59,7 +47,7 @@ app.use(logger);
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-
+app.use('/api/docs/Transaction', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use("/auth",authRoutes)
 
 app.use("/transactions",transactionRoutes);
@@ -67,7 +55,7 @@ app.use("/admin",adminRoutes);
 app.use("/upload",uploadRoutes);
 
 
-app.use('/api/docs/Transaction', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 app.get("/", (req, res) => {
     res.send(users);
 });
