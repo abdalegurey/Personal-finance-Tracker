@@ -1,5 +1,5 @@
 import cloudinary from '../utils/Cloudinary.js';
-import User from '../models/User.js';
+import User from '../models/user.js';
 
 export const uploadFile = async (req, res,next) => {
     console.log("reqqqq",req)
