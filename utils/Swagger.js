@@ -12,7 +12,7 @@ const options = {
     },
     servers: [
       {
-        url:  'http://localhost:3000',
+        url: process.env.NODE_ENV === "development" ? 'http://localhost:3000' : 'https://mentroship-api.onrender.com',
       }
     ],
     components: {
