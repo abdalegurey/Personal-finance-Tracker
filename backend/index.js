@@ -35,7 +35,7 @@ app.use(limiter);
 
 app.use(cors(
     {
-        origin: ["http://localhost:5173", "https://dugsiiye.com","http://localhost:5173"]
+        origin: ["http://localhost:5173", "https://dugsiiye.com","http://localhost:5173","https://personal-finance-tracker-244x.vercel.app/"]
     }
 ))
 
