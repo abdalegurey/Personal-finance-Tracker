@@ -1,7 +1,7 @@
 import useAuthStore from '@/Store/authStore';
 import axios from 'axios';
 // import useAuthStore from '../Store/authStore';
-const API_URL="http://localhost:5000/api"
+const API_URL="https://personal-finance-3l6w.onrender.com/api"
 
 const api = axios.create({
    
