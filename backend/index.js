@@ -33,11 +33,32 @@ app.use(limiter);
 // console.log("Start of Month:", startOfMonth);
 // console.log("End of Month:", endOfMonth);
 
-app.use(cors(
-    {
-        origin: ["http://localhost:5173", "https://dugsiiye.com","http://localhost:5173","https://personal-finance-tracker-244x.vercel.app/"]
+
+const allowedOrigins = [
+  'http://localhost:5175',
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://localhost:5879',
+  'http://localhost:5177',
+  'http://localhost:5174',
+  'https://mentroship-api.onrender.com',
+  'https://mentroship-api.vercel.app',
+  'https://task-management-system-xi-henna.vercel.app',
+  "https://personal-finance-tracker-244x-el1t5vae5.vercel.app"
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
     }
-))
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 
 // Middleware to log requests
