@@ -9,5 +9,5 @@ const Footer = () => {
     </footer>
   )
 }
-
+// sk
 export default Footer
