@@ -7,8 +7,11 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "server": "nodemon backend/index.js",
+     "client": "npm run dev --prefix frontend",
+    "start": "node backend/index.js",
+      "dev": "concurrently  \"npm run server\"  \"npm run client\" ",
+       "build": "npm install"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
@@ -25,5 +28,8 @@
     "multer-storage-cloudinary": "^4.0.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0"
   }
 }

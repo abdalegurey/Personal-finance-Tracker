@@ -35,7 +35,7 @@ app.use(limiter);
 
 app.use(cors(
     {
-        origin: ["http://localhost:5173", "https://dugsiiye.com"]
+        origin: ["http://localhost:5173", "https://dugsiiye.com","http://localhost:5173"]
     }
 ))
 
@@ -48,11 +48,11 @@ app.use(logger);
 app.use(express.json());
 
 app.use('/api/docs/Transaction', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-app.use("/auth",authRoutes)
+app.use("/api/auth",authRoutes)
 
-app.use("/transactions",transactionRoutes);
+app.use("/api/transactions",transactionRoutes);
 app.use("/admin",adminRoutes);
-app.use("/upload",uploadRoutes);
+app.use("/api/upload",uploadRoutes);
 
 
 
@@ -67,6 +67,12 @@ app.get("/users", (req, res) => {
 );
 
 app.use(Notfound);
+
+// mongoose.connect(process.env.NODE_ENV =="development" ? process.env.MONGO_URI_DEV : process.env.MONGO_URL_PRO)
+// mongoose.connect(process.env.NODE_ENV === "development" ? process.env.MONGO_URI_DEV : process.env.MONGO_URL_PRO)
+
+//   .then(() => console.log('✅ MongoDB connected locally'))
+//   .catch(err => console.error('❌ Connection error:', err));
 
 mongoose.connect(process.env.NODE_ENV =="development"? process.env.MONGO_URI_DEV : process.env.MONGO_URL_PRO)
   .then(() => console.log('✅ MongoDB connected locally'))
