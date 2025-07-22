@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom' // ✅ sax
 
 
 import Login from './pages/auth/Login'
-import Register from './pages/auth/register'
+import Register from './pages/auth/Register'
 import DashboardPage from './pages/Dashboard/DashboardPage'
 import ProtectedRoute from './components/auth/ProtectRoute'
 const App = () => {
